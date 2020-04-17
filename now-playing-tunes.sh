@@ -3,7 +3,7 @@ dbus-monitor --session "path=/org/mpris/MediaPlayer2" --monitor | awk '
     while (1) {
       getline line
       if (line ~ /string "/){
-        sub(/.*string "/, "artist:", line)
+        sub(/.*string "/, "Artist:", line)
         sub(/".*$/, "", line)
         print line > "/home/joshua/song-artist.txt"
         close("/home/joshua/song-artist.txt")
@@ -15,7 +15,7 @@ dbus-monitor --session "path=/org/mpris/MediaPlayer2" --monitor | awk '
     while (1) {
       getline line
       if (line ~ /string "/){
-        sub(/.*string "/, "title:", line)
+        sub(/.*string "/, "Title:", line)
         sub(/".*$/, "", line)
         print line > "/home/joshua/song-title.txt"
         close("/home/joshua/song-title.txt")
